@@ -13,7 +13,7 @@ export const Container = styled.div`
     > input {
         width: 100%;
         border: none;
-        padding: 3px;
+        padding: 8px;
         outline: none;
         border-bottom: 1px solid #c4c4c4;
 

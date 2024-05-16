@@ -9,7 +9,8 @@ export const Container = styled.header`
 `
 
 export const Brand = styled.div`
-    
+    display: flex;
+    align-items: center;
 `
 
 export const Buttons = styled.nav`

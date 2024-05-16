@@ -60,7 +60,7 @@ export const Group = styled.div`
 `
 
 export const Form = styled.div`
-    min-width: 350px;
+    max-width: 330px;
     min-height: 300px;
     padding: 13px;
     background-color: #FFF;
