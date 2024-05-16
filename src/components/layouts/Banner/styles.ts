@@ -33,6 +33,10 @@ export const Title = styled.div`
     font-weight: 500;
     line-height: 35px;
     margin-bottom: 20px;
+    
+    @media screen and (max-width: 1200px){
+        font-size: 2rem;
+    }
 `
 
 export const Advantages = styled.div`
