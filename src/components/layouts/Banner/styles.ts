@@ -50,7 +50,7 @@ export const Advantages = styled.div`
 `
 
 export const Div = styled.div`
-    width: 150px;
+    width: 47%;
 `
 
 export const Group = styled.div`
