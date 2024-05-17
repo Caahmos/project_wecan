@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface IContainer {
+    color: string;
+}
+
+export const Container = styled.div<IContainer>`
     width: 100%;
     text-align: left;
     margin-bottom: 20px;
@@ -15,7 +19,7 @@ export const Container = styled.div`
         border: none;
         padding: 8px;
         outline: none;
-        border-bottom: 1px solid #c4c4c4;
+        border-bottom: 1px solid ${props => props.color};
 
         &:hover{
             border-bottom: 1px solid #171414;

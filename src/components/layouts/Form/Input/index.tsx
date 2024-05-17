@@ -6,16 +6,17 @@ import {
 
 interface IInputProps {
     label: string;
+    color: string;
     type: string;
     name: string;
     placeholder: string;
     handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<IInputProps> = ({ label, name, type, placeholder, handleOnChange }) => (
-    <Container>
+const Input: React.FC<IInputProps> = ({ label, color, name, type, placeholder, handleOnChange }) => (
+    <Container color={color}>
         <label htmlFor={name}>{label}</label>
-        <input type={type} id={name} name={name} placeholder={placeholder} onChange={handleOnChange} required />
+        <input className="valida" type={type} id={name} name={name} placeholder={placeholder} onChange={handleOnChange} />
     </Container>
 )
 
