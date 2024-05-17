@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
-    grid-area: FT;
+    padding: 20px;
 `

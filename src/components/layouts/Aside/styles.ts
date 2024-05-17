@@ -14,6 +14,9 @@ const endAnimation = keyframes`
     0% {
         transform: translateX(0px);
     }
+    50%{
+        opacity: 50%;
+    }
     100%{
         opacity: 0;
         transform: translateX(50px);
@@ -26,13 +29,16 @@ interface IContainer {
 }
 
 export const Container = styled.aside<IContainer>`
-    grid-area: AS;
+    width: 250px;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    display: none;
+    position: fixed;
+    right: 0;
+    z-index: 9999;
     gap: 20px;
-    z-index: 2;
-    position: relative;
     background-color: white;
     -webkit-box-shadow: -20px 0px 39px 0px rgba(0,0,0,0.29);
     -moz-box-shadow: -20px 0px 39px 0px rgba(0,0,0,0.29);

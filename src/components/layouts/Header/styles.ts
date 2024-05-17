@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
-    grid-area: "HD";
-    padding: 0 70px;
+    padding: 12px 70px;
     display: flex;
     z-index: 1;
     justify-content: space-between;
