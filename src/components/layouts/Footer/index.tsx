@@ -1,7 +1,13 @@
 import React from "react";
 
+import {
+    Container
+} from './styles'
+
 const Footer: React.FC = () => (
-    <p>Footer</p>
+    <Container>
+        <p>Footer</p>
+    </Container>
 )
 
 export default Footer;

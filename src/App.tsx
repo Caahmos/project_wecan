@@ -1,23 +1,23 @@
 import React from 'react';
-import Header from './components/layouts/Header';
-import Content from './components/layouts/Content';
-import Footer from './components/layouts/Footer';
 import GlobalStyles from './styles/GlobalStyles';
+import Layout from './components/layouts/Layout/Index';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import useMenu from './hooks/useMenu';
 
 function App() {
+  const { MenuProvider } = useMenu();
   return (
-    <Router>
-      <GlobalStyles />
-      <Header />
-      <Content>
-        <Routes>
-          <Route path='/' element={<Home />} />
-        </Routes>
-      </Content>
-      <Footer />
-    </Router>
+    <MenuProvider>
+      <Router>
+        <GlobalStyles />
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Home />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </MenuProvider>
   );
 }
 

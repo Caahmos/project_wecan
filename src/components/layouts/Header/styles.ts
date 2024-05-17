@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
-    width: 100%;
-    padding: 15px 100px;
+    grid-area: "HD";
+    padding: 0 70px;
     display: flex;
+    z-index: 1;
     justify-content: space-between;
     align-items: center;
     font-size: 0.93rem;
@@ -19,8 +20,24 @@ export const Brand = styled.div`
     align-items: center;
 `
 
-export const Buttons = styled.nav`
+export const Menu = styled.nav`
+    font-size: 2.3rem;
+    display: none;
+    cursor: pointer;
 
+    @media screen and (max-width: 800px) {
+        display: flex;
+        align-items: center;
+    }
+`
+
+export const Buttons = styled.nav`
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 800px) {
+        display: none;
+    }
 `
 
 export const Button = styled(Link)`
@@ -33,6 +50,8 @@ export const Button = styled(Link)`
     background-color: #FFF;
     outline: none;
     transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
 
     &:hover{
         border: 1px solid #bd0006;
