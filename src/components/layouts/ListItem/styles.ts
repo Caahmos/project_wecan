@@ -9,6 +9,12 @@ export const Container = styled.li`
     border-radius: 15px;
     color: #fff;
     background-color: #bd0006aa;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover{
+        transform: translateX(50px);
+    }
 `
 
 export const Text = styled.span`

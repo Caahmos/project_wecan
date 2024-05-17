@@ -1,4 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const animate = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    50% {
+        opacity: 50%;
+    }
+
+    100%{
+        opacity: 100%;
+        transform: translateX(0px);
+    }
+`
 
 export const Container = styled.div`
     max-width: 330px;
@@ -9,6 +25,7 @@ export const Container = styled.div`
     text-align: center;
     display: flex;
     flex-direction: column;
+    animation: ${animate} 0.6s;
 
     > p {
         margin-bottom: 10px;
