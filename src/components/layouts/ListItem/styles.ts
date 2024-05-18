@@ -15,6 +15,12 @@ export const Container = styled.li`
     &:hover{
         transform: translateX(50px);
     }
+    
+    @media screen and (max-width: 800px) {
+        &:hover{
+            transform: translateX(0);
+        }
+    }
 `
 
 export const Text = styled.span`

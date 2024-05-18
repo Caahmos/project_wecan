@@ -73,6 +73,7 @@ export const Button = styled(Link)`
     transition: all 0.4s ease;
     display: flex;
     align-items: center;
+    justify-self: self-end;
 
     &:hover {
         border: 1px solid #bd0006;
