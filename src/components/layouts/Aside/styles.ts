@@ -49,10 +49,6 @@ export const Container = styled.aside<IContainer>`
         margin-left: 0;
         text-align: center;
         padding: 15px;
-
-       &:hover{
-        border-bottom: 1px solid #bd0006
-       }
     }
 
     @media screen and (max-width: 800px) {
