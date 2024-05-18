@@ -30,32 +30,41 @@ export const Container = styled.aside<IContainer>`
     height: 100vh;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 50px 0;
     position: fixed;
     right: 0;
     z-index: 9999;
-    gap: 20px;
     background-color: white;
     box-shadow: -20px 0px 39px 0px rgba(0,0,0,0.29);
     display: none;
-    animation: ${(props) => 
-        props.display ? 
-        css`${introAnimation} 0.3s forwards` : 
-        props.isAnimatingOut ? 
-        css`${endAnimation} 0.3s forwards` : 
-        'none'
+    animation: ${(props) =>
+        props.display ?
+            css`${introAnimation} 0.3s forwards` :
+            props.isAnimatingOut ?
+                css`${endAnimation} 0.3s forwards` :
+                'none'
     };
+
+    > * {
+        margin-left: 0;
+        text-align: center;
+        padding: 15px;
+
+       &:hover{
+        border-bottom: 1px solid #bd0006
+       }
+    }
 
     @media screen and (max-width: 800px) {
         display: flex;
         width: 250px;
+        gap: 20px;
     }
 `;
 
 export const Button = styled(Link)`
     padding: 7px 12px;
     text-decoration: none;
-    margin-left: 20px;
     color: #171414;
     border: 1px solid #171414;
     border-radius: 6px;
