@@ -1,31 +1,28 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { Link } from 'react-router-dom';
 
 const introAnimation = keyframes`
     0% {
         transform: translateX(50px);
     }
-    100%{
+    100% {
         transform: translateX(0px);
     }
-`
+`;
 
 const endAnimation = keyframes`
     0% {
         transform: translateX(0px);
     }
-    50%{
-        opacity: 50%;
-    }
-    100%{
+    100% {
         opacity: 0;
         transform: translateX(50px);
-        display: none;
     }
-`
+`;
 
 interface IContainer {
     display: boolean;
+    isAnimatingOut: boolean;
 }
 
 export const Container = styled.aside<IContainer>`
@@ -34,26 +31,26 @@ export const Container = styled.aside<IContainer>`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    display: none;
     position: fixed;
     right: 0;
     z-index: 9999;
     gap: 20px;
     background-color: white;
-    -webkit-box-shadow: -20px 0px 39px 0px rgba(0,0,0,0.29);
-    -moz-box-shadow: -20px 0px 39px 0px rgba(0,0,0,0.29);
     box-shadow: -20px 0px 39px 0px rgba(0,0,0,0.29);
+    display: none;
+    animation: ${(props) => 
+        props.display ? 
+        css`${introAnimation} 0.3s forwards` : 
+        props.isAnimatingOut ? 
+        css`${endAnimation} 0.3s forwards` : 
+        'none'
+    };
 
-    @media screen and (max-width: 800px){
-        display: ${props => props.display ? 'flex' : 'none'};
-        position: fixed;
-        animation: ${(props) => props.display ? introAnimation : endAnimation} 0.9s;
-        right: 0;
-        z-index: 2;
-        height: 100vh;
+    @media screen and (max-width: 800px) {
+        display: flex;
         width: 250px;
     }
-`
+`;
 
 export const Button = styled(Link)`
     padding: 7px 12px;
@@ -68,12 +65,12 @@ export const Button = styled(Link)`
     display: flex;
     align-items: center;
 
-    &:hover{
+    &:hover {
         border: 1px solid #bd0006;
         color: #bd0006;
     }
-`
+`;
 
 export const Text = styled.span`
     margin-right: 5px;
-`
+`;
