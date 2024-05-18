@@ -4,7 +4,7 @@ import WecanLogo from '../../../assets/img/WecanLogo.png';
 import LinkItem from "../LinkItem";
 import { MdLogin } from "react-icons/md";
 import { FiMenu } from "react-icons/fi";
-import useMenu from "../../../hooks/useMenu";
+import { useMenu } from "../../../hooks/useMenu";
 
 import {
     Container,
@@ -16,14 +16,14 @@ import {
 } from './styles'
 
 const Header: React.FC = () => {
-    const { context } = useMenu();
+    const { changeMenu } = useMenu();
 
     return (
         <Container>
-            <Brand>
+            <Brand onClick={() => { changeMenu() }}>
                 <img src={WecanLogo} alt="" width="90px" />
             </Brand>
-            <Menu onClick={context.changeMenu}>
+            <Menu onClick={() => { changeMenu() }}>
                 <FiMenu />
             </Menu>
             <Buttons>

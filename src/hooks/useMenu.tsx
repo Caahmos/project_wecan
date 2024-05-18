@@ -1,36 +1,42 @@
-import React, { createContext, useContext, useState, useMemo } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface IMenuContext {
     menuIsOpen: boolean;
-    changeMenu(): boolean
+    changeMenu(): void;
 }
 
 const MenuContext = createContext<IMenuContext>({} as IMenuContext);
 
 interface IMenuProviderProps {
-    children: React.ReactNode;
-};
+    children: ReactNode;
+}
 
 const MenuProvider: React.FC<IMenuProviderProps> = ({ children }) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
 
+    useEffect(() => {
+        console.log(menuIsOpen);
+    }, [menuIsOpen]);
+
     const changeMenu = () => {
-        setMenuIsOpen(!menuIsOpen);
-        console.log(menuIsOpen)
-        return menuIsOpen;
+        setMenuIsOpen(prevState => !prevState);
     };
 
     return (
         <MenuContext.Provider value={{ menuIsOpen, changeMenu }}>
             {children}
         </MenuContext.Provider>
-    )
+    );
 }
 
-const useMenu = () => {
+const useMenu = (): IMenuContext => {
     const context = useContext(MenuContext);
 
-    return { MenuProvider, context }
+    if (!context) {
+        throw new Error("useMenu must be used within a MenuProvider");
+    }
+
+    return context;
 }
 
-export default useMenu;
+export { MenuProvider, useMenu };

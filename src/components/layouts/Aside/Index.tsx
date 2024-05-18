@@ -1,7 +1,7 @@
 import React from "react";
 import LinkItem from "../LinkItem";
 import { MdLogin } from "react-icons/md";
-import useMenu from "../../../hooks/useMenu";
+import { useMenu } from "../../../hooks/useMenu";
 
 import {
     Container,
@@ -10,10 +10,10 @@ import {
 } from './styles'
 
 const Aside: React.FC = () => {
-    const { context } = useMenu();
+    const { menuIsOpen } = useMenu();
 
     return (
-        <Container display={context.menuIsOpen}>
+        <Container display={menuIsOpen}>
             <LinkItem to="/" label="Início" />
             <LinkItem to="/blog" label="Blog" />
             <LinkItem to="/workwithus" label="Trabalhe Conosco" />
