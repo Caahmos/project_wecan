@@ -20,7 +20,7 @@ const Header: React.FC = () => {
 
     return (
         <Container>
-            <Brand onClick={() => { changeMenu() }}>
+            <Brand>
                 <img src={WecanLogo} alt="" width="90px" />
             </Brand>
             <Menu onClick={() => { changeMenu() }}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import LinkItem from "../LinkItem";
 import { MdLogin } from "react-icons/md";
 import { useMenu } from "../../../hooks/useMenu";
@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 const Aside: React.FC = () => {
-    const { menuIsOpen } = useMenu();
+    const { menuIsOpen, changeMenu } = useMenu();
     const [isAnimatingOut, setIsAnimatingOut] = useState(false);
     const [shouldRender, setShouldRender] = useState(menuIsOpen);
 
@@ -29,9 +29,25 @@ const Aside: React.FC = () => {
         }
     };
 
+    const asideRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
+    const handleClickOutside = (e: MouseEvent) => {
+        if (asideRef.current && !asideRef.current.contains(e.target as Node)) {
+            console.log("Clique fora do componente Aside");
+            changeMenu();
+        }
+    };
+
     return (
         shouldRender ? (
-            <Container display={menuIsOpen} isAnimatingOut={isAnimatingOut} onAnimationEnd={handleAnimationEnd}>
+            <Container ref={asideRef} display={menuIsOpen} isAnimatingOut={isAnimatingOut} onAnimationEnd={handleAnimationEnd}>
                 <LinkItem to="/" label="Início" />
                 <LinkItem to="/blog" label="Blog" />
                 <LinkItem to="/workwithus" label="Trabalhe Conosco" />
