@@ -23,6 +23,11 @@ export const Menu = styled.nav`
     font-size: 2.3rem;
     display: none;
     cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover{
+        color: #bd0006;
+    }
 
     @media screen and (max-width: 800px) {
         display: flex;
