@@ -10,6 +10,7 @@ export const Container = styled.div`
     align-items: center;
     background-image: url(${Banner});
     background-size: cover;
+    background-position: center right;
     background-repeat: no-repeat;
     padding: 0 30px;
     
