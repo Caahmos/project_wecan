@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Banner from '../../../assets/img/Banner.png';
+import Banner from '../../../assets/img/Banner.jpg';
 
 export const Container = styled.div`
     min-height: 500px;

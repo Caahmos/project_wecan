@@ -2,12 +2,18 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
+    position: sticky;
+    z-index: 1100;
+    top: 0;
+    left: auto;
+    right: 0;
     padding: 12px 70px;
     display: flex;
     z-index: 1;
     justify-content: space-between;
     align-items: center;
     font-size: 0.93rem;
+    background-color: #fff;
 
     @media screen and (max-width: 800px) {
         padding: 15px 35px;
@@ -20,7 +26,7 @@ export const Brand = styled(Link)`
 `
 
 export const Menu = styled.nav`
-    font-size: 2.3rem;
+    font-size: 1.5rem;
     display: none;
     cursor: pointer;
     transition: all 0.4s ease;
